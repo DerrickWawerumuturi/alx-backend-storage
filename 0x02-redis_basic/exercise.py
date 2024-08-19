@@ -8,15 +8,12 @@ import uuid
 from typing import Union
 
 
-r = redis.Redis()
-
-
 class Cache:
     def __init__(self) -> None:
         """ stores an instance pf Redis client
         as private variable
         """
-        self._redis = r
+        self._redis = redis.Redis()
         self._redis.flushdb(True)
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
