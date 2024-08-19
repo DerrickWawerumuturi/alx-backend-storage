@@ -17,7 +17,7 @@ class Cache:
         as private variable
         """
         self._redis = r
-        self.flushdb = r.flushdb()
+        self._redis.flushdb(True)
 
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """ generates a random key and stores the input
